@@ -1,8 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
 import pymongo
+import os
 
-cluster = pymongo.MongoClient('mongodb+srv://hughkohl:*Tiger13@cluster0-bdg3q.azure.mongodb.net/test?retryWrites=true&w=majority')
+
+# db_password = os.environ['DB_PASS']
+# print(db_password)
+mongo_url = 'mongodb+srv://hughkohl:' + '*Tiger13' + '@cluster0-bdg3q.azure.mongodb.net/test?retryWrites=true&w=majority'
+
+cluster = pymongo.MongoClient(mongo_url)
 db = cluster["job_scrape"]
 collection = db["scrape"]
 
